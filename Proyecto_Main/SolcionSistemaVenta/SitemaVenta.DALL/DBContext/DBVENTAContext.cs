@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using SistemaVenta.Entity; // referenciamos hacia Entity
 
 namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra capa Entity
 {
@@ -16,18 +17,18 @@ namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra
         {
         }
 
-        public virtual DbSet<Categorium> Categoria { get; set; } = null!;
+        public virtual DbSet<Categoria> Categoria { get; set; } = null!;
         public virtual DbSet<Configuracion> Configuracions { get; set; } = null!;
-        public virtual DbSet<DetalleVentum> DetalleVenta { get; set; } = null!;
+        public virtual DbSet<DetalleVenta> DetalleVenta { get; set; } = null!;
         public virtual DbSet<Menu> Menus { get; set; } = null!;
         public virtual DbSet<Negocio> Negocios { get; set; } = null!;
         public virtual DbSet<NumeroCorrelativo> NumeroCorrelativos { get; set; } = null!;
         public virtual DbSet<Producto> Productos { get; set; } = null!;
         public virtual DbSet<Rol> Rols { get; set; } = null!;
         public virtual DbSet<RolMenu> RolMenus { get; set; } = null!;
-        public virtual DbSet<TipoDocumentoVentum> TipoDocumentoVenta { get; set; } = null!;
+        public virtual DbSet<TipoDocumentoVenta> TipoDocumentoVenta { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
-        public virtual DbSet<Ventum> Venta { get; set; } = null!;
+        public virtual DbSet<Venta> Venta { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,7 +41,7 @@ namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categorium>(entity =>
+            modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
                     .HasName("PK__Categori__8A3D240C0F38B3EE");
@@ -82,7 +83,7 @@ namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra
                     .HasColumnName("valor");
             });
 
-            modelBuilder.Entity<DetalleVentum>(entity =>
+            modelBuilder.Entity<DetalleVenta>(entity =>
             {
                 entity.HasKey(e => e.IdDetalleVenta)
                     .HasName("PK__DetalleV__BFE2843F2B4E4B15");
@@ -355,7 +356,7 @@ namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra
                     .HasConstraintName("FK__RolMenu__idRol__3E52440B");
             });
 
-            modelBuilder.Entity<TipoDocumentoVentum>(entity =>
+            modelBuilder.Entity<TipoDocumentoVenta>(entity =>
             {
                 entity.HasKey(e => e.IdTipoDocumentoVenta)
                     .HasName("PK__TipoDocu__A9D59AEEA9DEF28F");
@@ -429,7 +430,7 @@ namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra
                     .HasConstraintName("FK__Usuario__idRol__4316F928");
             });
 
-            modelBuilder.Entity<Ventum>(entity =>
+            modelBuilder.Entity<Venta>(entity =>
             {
                 entity.HasKey(e => e.IdVenta)
                     .HasName("PK__Venta__077D56142A129E5E");
