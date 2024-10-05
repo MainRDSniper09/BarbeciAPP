@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace SistemaVenta.Entity
+namespace SistemaVenta.DALL.DBContext  // Agregamos una referencia hacia nuestra capa Entity
 {
     public partial class DBVENTAContext : DbContext
     {
