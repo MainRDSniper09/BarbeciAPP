@@ -11,4 +11,9 @@
     <ProjectReference Include="..\SitemaVenta.DALL\SitemaVenta.DALL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Implementacion\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
 </Project>
